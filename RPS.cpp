@@ -10,6 +10,13 @@ int main()
 
     char Player1, Player2;
     string again;
+
+    cout << endl;
+    cout << "Rules :-" << endl;
+    cout << "Rock Beats Scissor" << endl;
+    cout << "Paper Beats Rock" << endl;
+    cout << "Scissor Beats Paper" << endl << endl;
+    cout << "Note :- If two outcomes are same, then it will be a tie." << endl;
     
     do
     {
@@ -46,7 +53,7 @@ int main()
 
         if (Player1 == 'r' && Player2 == 'r')
         {
-            cout << "No one Wins...!" << endl;
+            cout << "Tie...!" << endl;
         }
         if (Player1 == 'r' && Player2 == 'p')
         {
@@ -63,7 +70,7 @@ int main()
         }
         if (Player1 == 'p' && Player2 == 'p')
         {
-            cout << "No one Wins...!" << endl;
+            cout << "Tie...!" << endl;
         }
         if (Player1 == 'p' && Player2 == 's')
         {
@@ -80,7 +87,7 @@ int main()
         }
         if (Player1 == 's' && Player2 == 's')
         {
-            cout << "No one Wins...!" << endl;
+            cout << "Tie...!" << endl;
         }
 
         if ((Player1 != 'r' && Player1 != 'p' && Player1 != 's') ||
