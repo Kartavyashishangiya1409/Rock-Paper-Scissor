@@ -1,6 +1,8 @@
 // Rock Paper Scissor
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 int main()
@@ -8,72 +10,92 @@ int main()
 
     char Player1, Player2;
     string again;
-
+    
     do
     {
-        cout << endl << "Player-1 Please select rock-(r), paper-(p) or scissor-(s)" << endl ;
+        cout << endl << "Player-1 Please select rock-(r), paper-(p) or scissor-(s)" << endl;
 
         cout << "Player-1 = ";
         cin >> Player1;
+        cin.clear();           
+        cin.ignore(1000, '\n');
+
+        srand(static_cast<unsigned>(time(0)));
+
+        int randomNumber = (rand() % 3) + 1;
 
         cout << endl << "Player-2 Please select rock-(r), paper-(p) or scissor-(s)" << endl;
-
-        cout << "Player-2 = ";
-        cin >> ws >> Player2;
+        
+        if (randomNumber == 1)
+        {
+            Player2 = 'r';
+            cout << "Player2 = " << Player2 << endl;
+        }
+        if (randomNumber == 2)
+        {
+            Player2 = 'p';
+            cout << "Player2 = " << Player2 << endl;
+        }
+        if (randomNumber == 3)
+        {
+            Player2 = 's';
+            cout << "Player2 = " << Player2 << endl;
+        }
 
         cout << endl;
 
-        if ((Player1 == 'r' || Player1 == 'R') && (Player2 == 'r' || Player2 == 'R'))
+        if (Player1 == 'r' && Player2 == 'r')
         {
             cout << "No one Wins...!" << endl;
         }
-        if ((Player1 == 'r' || Player1 == 'R') && (Player2 == 'p' || Player2 == 'P'))
+        if (Player1 == 'r' && Player2 == 'p')
         {
             cout << "Player-2 Wins...!" << endl;
         }
-        if ((Player1 == 'r' || Player1 == 'R') && (Player2 == 's' || Player2 == 'S'))
+        if (Player1 == 'r' && Player2 == 's')
         {
             cout << "Player-1 Wins...!" << endl;
         }
 
-        if ((Player1 == 'p' || Player1 == 'P') && (Player2 == 'r' || Player2 == 'R'))
+        if (Player1 == 'p' && Player2 == 'r')
         {
             cout << "Player-1 Wins...!" << endl;
         }
-        if ((Player1 == 'p' || Player1 == 'P') && (Player2 == 'p' || Player2 == 'P'))
+        if (Player1 == 'p' && Player2 == 'p')
         {
             cout << "No one Wins...!" << endl;
         }
-        if ((Player1 == 'p' || Player1 == 'P') && (Player2 == 's' || Player2 == 'S'))
+        if (Player1 == 'p' && Player2 == 's')
         {
             cout << "Player-2 Wins...!" << endl;
         }
 
-        if ((Player1 == 's' || Player1 == 'S') && (Player2 == 'r' || Player2 == 'R'))
+        if (Player1 == 's' && Player2 == 'r')
         {
             cout << "Player-2 Wins...!" << endl;
         }
-        if ((Player1 == 's' || Player1 == 'S') && (Player2 == 'p' || Player2 == 'P'))
+        if (Player1 == 's' && Player2 == 'p')
         {
             cout << "Player-1 Wins...!" << endl;
         }
-        if ((Player1 == 's' || Player1 == 'S') && (Player2 == 's' || Player2 == 'S'))
+        if (Player1 == 's' && Player2 == 's')
         {
             cout << "No one Wins...!" << endl;
         }
 
-        if ((Player1 != 'r' && Player1 != 'p' && Player1 != 's') || 
-        (Player2 != 'r' && Player2 != 'p' && Player2 != 's')) 
+        if ((Player1 != 'r' && Player1 != 'p' && Player1 != 's') ||
+            (Player2 != 'r' && Player2 != 'p' && Player2 != 's'))
         {
             cout << "Invalid input! Please enter 'r', 'p', or 's'." << endl;
         }
 
         cout << endl << "Do you want to play again? (yes or no) --> ";
         cin >> again;
+        cin.clear();           
+        cin.ignore(1000, '\n'); 
 
     } while (again == "yes" || again == "Yes" || again == "YES");
 
     cout << endl;
     cout << "OK,\nNO Problem...!" << endl << endl;
-    
 }
